@@ -3,7 +3,6 @@ from django.db import models
 from django.utils import timezone
 
 
-# Create your models here.
 class Post(models.Model):
 
     class Status(models.TextChoices):
@@ -21,7 +20,11 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-publish',]
-        indexes = [models.Index(fields=['-publish']),]
+        indexes = [
+            models.Index(fields=['-publish']),
 
-    def __str__(self):
+        ]
+
+    def _str_(self):
         return self.title
+
